@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TOM & JERRY</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png" />
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+
+    <meta name="description" content=" Tom & Jerry is board game that can bring you lots of fun competing with friends.">
+    <meta name="author" content="Thai Son Dang">
+    <meta name="keywords" content="Tom and jerry, boardgame, game">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Tom & Jerry || Beat 'em on the board.">
+    <meta property="og:type" content="website/app">
+    <meta property="og:url" content="http://www.beste-choice.de/projects/tomandjerry/">
+    <meta property="og:image" content="https://pbs.twimg.com/profile_images/458955466756726784/KQpNPBA_.png">
+    <meta property="og:description" content="TOM always loose fighting against Jerry, would you think...?">
+
+
+    <!-- Twitter Card -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- images will be loaded on the canvas -->
+    <div class="allImg" style="display: none">
+        <img id="obstacle" src="img/obstacle.png" alt="obstacle">
+        <img id="player1" src="img/player1.png" alt="player 1">
+        <img id="player2" src="img/player2.png" alt="player 2">
+        <img id="weapon1" src="img/weapons/w1.png" alt="weapon 1">
+        <img id="weapon2" src="img/weapons/w2.png" alt="weapon 2">
+        <img id="weapon3" src="img/weapons/w3.png" alt="weapon 3">
+        <img id="weapon4" src="img/weapons/w4.png" alt="weapon 4">
+        <img id="weapon0" src="img/weapons/w0.png" alt="weapon 0">
+    </div>
+    <div class="container clearfix">
+        <header class="header">
+            <div class="img-frame logo-box">
+                <img class="logo" src="img/logo-game.png" alt="logo tom and jerry">
+            </div>
+            <div class="options">
+                <button class="btn btn--newgame">NEW GAME</button>
+                <button class="btn btn--rules">RULES</button>
+            </div>
+        </header>
+        <main class="main clearfix">
+            <div class="detailBox detailBox--player1">
+                <div class="player_name player1_name">
+                    TOM
+                </div>
+                <div class="player">
+                    <div class="img-frame">
+                        <img src="img/player1_big.png" alt="player1">
+                    </div>
+                    <div class="index_label">
+                        Health
+                    </div>
+                    <div class="index_value" id="player1_lifePoint">
+                        100
+                    </div>
+                </div>
+                <div class="weapon">
+                    <div class="img-frame">
+                        <img id="player1_weapon" src="img/weapons/w0-big.png" alt="player1 weapon">
+                    </div>
+                    <div class="index_label">
+                        Weapon
+                    </div>
+                    <div class="index_value" id="player1_damage">
+                        10
+                    </div>
+                </div>
+                <div class="shield">
+                    <div class="img-frame">
+                        <img src="img/state/defense.png" alt="player1">
+                    </div>
+                    <div class="index_value shield_state" id="player1_shield_state">
+                        UP
+                    </div>
+                </div>
+            </div>
+
+            <div id="canvasBox">
+                <canvas id="canvas" width="550" height="550" class="">
+                    Your browser doesn't support the Canvas.
+                </canvas>
+            </div>
+            
+            <div class="detailBox detailBox--player2">
+                <div class="player_name player2_name">
+                    JERRY
+                </div>
+                <div class="player">
+                    <div class="img-frame">
+                        <img src="img/player2_big.png" alt="player2 photo">
+                    </div>
+                    <div class="index_label">
+                        Health
+                    </div>
+                    <div class="index_value" id="player2_lifePoint">
+                        100
+                    </div>
+                </div>
+                <div class="weapon">
+                    <div class="img-frame">
+                        <img id="player2_weapon" src="img/weapons/w0-big.png" alt="player2">
+                    </div>
+                    <div class="index_label">
+                        Weapon
+                    </div>
+                    <div class="index_value" id="player2_damage">
+                        10
+                    </div>
+                </div>
+                <div class="shield">
+                    <div class="img-frame">
+                        <img src="img/state/defense.png" alt="player1">
+                    </div>
+                    <div class="index_value shield_state" id="player2_shield_state">
+                        UP
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- RULES SECTION -->
+            <div class="rulesBox">
+                <div class="rule-section">
+                    <h3>Movement</h3>
+                    <ul>
+                        <li>When a player is in turn. He can choose to stay or to move. (max. 3 tiles, but can not jump over a obstacle or the oponent.)</li>
+                        <li>While moving, if the player passes through a weapon, then he takes the new weapon and drop the old one off.</li>
+                    </ul>
+                </div>
+                <div class="rule-section">
+                    <h3>Fight</h3>
+                    <p>The battle begins if two players stand next to each other.</p>
+                    <ul>
+                        <li>Each player attacks in turn</li>
+                        <li>The damage he causes and got depends on the shield status of both players.
+                            <p>- shield up: causes no damage but got only 50% damage from enemy.</p>
+                            <p>- shield down: causes damage based on the current weapon.</p>
+                        </li>
+                        <li>The game is over if the life points of a player (initially 100) falls to 0.</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <!-- DEFENSE & ATTACK  ||  GAME OVER message -->
+            <div class="message-box" id="message-box">
+                <!-- <h2 id="playerInturn"></h2>
+                <button class="btn choice attack" id="btn-attack">ATTACK</button>
+                <button class="btn choice defense" id="btn-defense">DEFENSE</button> -->
+            </div>
+        </main>
+    </div>
+    <!-- change the value of width and height, but try to keep width == height -->
+    <script src="js/preload.js"></script>
+    <script src="js/logic.js"></script>
+    <script src="js/objects.js"></script>
+    <script src="js/draw.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
