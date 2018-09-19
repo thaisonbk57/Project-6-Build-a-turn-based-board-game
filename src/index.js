@@ -1,7 +1,11 @@
 // get the canvas element
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-
+// set player
+// 1: player 01 moves
+// 2: player 01 moves
+// 3: no one moves
+let flag = 1;
 // width of the canvas
 const boardWidth = canvas.width;
 // this value can be changed to create a [N x N] matrix
@@ -339,7 +343,7 @@ Player.prototype = {
                 if (pathLength != 0) {
 
                     // temporary position index
-                    tempPositionIndex = 0;
+                    let tempPositionIndex = 0;
 
                     // the player will move step by step with setInterval()
                     let move = setInterval(() => {
@@ -649,8 +653,8 @@ const drawPlayer = function (player) {
     }
 
 
-    x = player.position[0] * tileWidth + 2 * tile_padding - 2.5;
-    y = player.position[1] * tileWidth + tile_padding;
+    let x = player.position[0] * tileWidth + 2 * tile_padding - 2.5;
+    let y = player.position[1] * tileWidth + tile_padding;
 
     ctx.drawImage(playerImg, 0, 0, icon_real_size, icon_real_size, y, x, icon_drawn_size, icon_drawn_size);
 }
@@ -692,11 +696,7 @@ const drawPossibleMoves = function (playerPos) {
 
 
 
-// set player
-// 1: player 01 moves
-// 2: player 01 moves
-// 3: no one moves
-let flag;
+
 $(document).ready(function() {
     const init = function() {
         // 0. set the flag
@@ -994,16 +994,19 @@ $(document).ready(function() {
             //console.log($(this).offset().left, $(this).offset().top);
 
             // 2. calculate the clicked point on the map
-            x = Math.floor((e.pageX - $(this).offset().left) / tileWidth);
-            y = Math.floor((e.pageY - $(this).offset().top) / tileWidth);
+            let x = Math.floor((e.pageX - $(this).offset().left) / tileWidth);
+            let y = Math.floor((e.pageY - $(this).offset().top) / tileWidth);
 
             let target = [y, x];
-
+            
+            console.log(flag);
             // 3. move the player based on the flag value
             if (flag == 1) {
                 currentPlayer = players[0];
             } else if (flag == 2) {
                 currentPlayer = players[1];
+            } else {
+                currentPlayer = null;
             }
 
             // 4. we use Asynchronous Promise.
@@ -1081,7 +1084,7 @@ $(document).ready(function() {
         setInterval(update, 1000 / 60);
 
         // random damage of weapon each 3s
-        setInterval(createWeapons, 3000);
+        // setInterval(createWeapons, 3000);
 
         // hide the RULES box if it's on display.
         $(DOMStrings.rulesBox).removeClass("rules-active");
@@ -1089,11 +1092,6 @@ $(document).ready(function() {
 
     drawGrid();
 });
-
-
-
-
-
 
 
 

@@ -6,7 +6,7 @@ const icon_real_size = 64;
 // size of icon that appear on the board
 const icon_drawn_size = tileWidth - 2 * tile_padding;
 
-const drawGrid = function () {
+const drawGrid = function() {
 
     //draw the background.
     ctx.fillStyle = "#805006";
@@ -36,7 +36,7 @@ const drawGrid = function () {
     }
 }
 
-const drawObstacle = function (x, y) {
+const drawObstacle = function(x, y) {
     /*
     draw an obstacle at [x, y] on the board.
     */
@@ -48,7 +48,7 @@ const drawObstacle = function (x, y) {
     ctx.drawImage(obstacle, 0, 0, icon_real_size, icon_real_size, y, x, icon_drawn_size, icon_drawn_size);
 }
 
-const drawWeapon = function (ID, x, y) {
+const drawWeapon = function(ID, x, y) {
     /*
     4: weapon 1
     5: weapon 2
@@ -79,7 +79,7 @@ const drawWeapon = function (ID, x, y) {
     ctx.drawImage(weapon, 0, 0, icon_real_size, icon_real_size, y, x, icon_drawn_size, icon_drawn_size);
 }
 
-const drawPlayer = function (player) {
+const drawPlayer = function(player) {
     /*
     1: player 1
     2: player 2
@@ -93,13 +93,13 @@ const drawPlayer = function (player) {
     }
 
 
-    x = player.position[0] * tileWidth + 2 * tile_padding - 2.5;
-    y = player.position[1] * tileWidth + tile_padding;
+    let x = player.position[0] * tileWidth + 2 * tile_padding - 2.5;
+    let y = player.position[1] * tileWidth + tile_padding;
 
     ctx.drawImage(playerImg, 0, 0, icon_real_size, icon_real_size, y, x, icon_drawn_size, icon_drawn_size);
 }
 
-const drawPossibleMoves = function (playerPos) {
+const drawPossibleMoves = function(playerPos) {
 
     /*highlight all valid tiles that player can go to in his turn.*/
 

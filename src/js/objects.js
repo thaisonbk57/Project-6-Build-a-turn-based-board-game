@@ -36,7 +36,7 @@ Player.prototype = {
                 if (pathLength != 0) {
 
                     // temporary position index
-                    tempPositionIndex = 0;
+                    let tempPositionIndex = 0;
 
                     // the player will move step by step with setInterval()
                     let move = setInterval(() => {

@@ -1,8 +1,3 @@
-// set player
-// 1: player 01 moves
-// 2: player 01 moves
-// 3: no one moves
-let flag;
 $(document).ready(function() {
     const init = function() {
         // 0. set the flag
@@ -109,13 +104,19 @@ $(document).ready(function() {
         // Now, we have 3 arrays  obstacles, weapons, players. We need to initiate the objectsData matrix by using forEach();
 
         // weapons are represented by numbers from 4 to 7
-        weapons.forEach((curr, index) => { objectsData[curr[0]][curr[1]] = index + 4 });
+        weapons.forEach((curr, index) => {
+            objectsData[curr[0]][curr[1]] = index + 4
+        });
 
         // players are represented on the board playersData by 1 || 2
-        players.forEach((curr, index) => { playersData[curr[0]][curr[1]] = index + 1 });
+        players.forEach((curr, index) => {
+            playersData[curr[0]][curr[1]] = index + 1
+        });
 
         // Obstacles are representedby 1
-        obstacles.forEach((curr) => { objectsData[curr[0]][curr[1]] = 1 });
+        obstacles.forEach((curr) => {
+            objectsData[curr[0]][curr[1]] = 1
+        });
 
 
 
@@ -300,16 +301,19 @@ $(document).ready(function() {
             //console.log($(this).offset().left, $(this).offset().top);
 
             // 2. calculate the clicked point on the map
-            x = Math.floor((e.pageX - $(this).offset().left) / tileWidth);
-            y = Math.floor((e.pageY - $(this).offset().top) / tileWidth);
+            let x = Math.floor((e.pageX - $(this).offset().left) / tileWidth);
+            let y = Math.floor((e.pageY - $(this).offset().top) / tileWidth);
 
             let target = [y, x];
 
+            console.log(flag);
             // 3. move the player based on the flag value
             if (flag == 1) {
                 currentPlayer = players[0];
             } else if (flag == 2) {
                 currentPlayer = players[1];
+            } else {
+                currentPlayer = null;
             }
 
             // 4. we use Asynchronous Promise.
@@ -387,7 +391,7 @@ $(document).ready(function() {
         setInterval(update, 1000 / 60);
 
         // random damage of weapon each 3s
-        setInterval(createWeapons, 3000);
+        // setInterval(createWeapons, 3000);
 
         // hide the RULES box if it's on display.
         $(DOMStrings.rulesBox).removeClass("rules-active");

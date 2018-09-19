@@ -1,10 +1,10 @@
-const turnIntoCoord = function (x) {
+const turnIntoCoord = function(x) {
 
     /*
     convert an Integer into [lat, long]
-
+  
     INPUT:  integer, boardSize (N x N)
-
+  
     OUTPUT: [lat, long]
     */
 
@@ -17,7 +17,7 @@ const turnIntoCoord = function (x) {
     return [lat, long];
 }
 
-const distance = function (posA, posB) {
+const distance = function(posA, posB) {
     /*
     calculate the distance between Point A[Ax, Ay] and Point B[Bx, By]
     using the formula: d = sqrt((x1-x2)^2 + (y1-y2)^2)
@@ -27,7 +27,7 @@ const distance = function (posA, posB) {
     return distance;
 }
 
-const calcPath = function (currPos, target) {
+const calcPath = function(currPos, target) {
     /* 
     INPUT: A[x, y]   &   B[x1, y1]
     OUTPUT: an array of points that the player would pass through, if he go from A to B
@@ -72,12 +72,12 @@ const calcPath = function (currPos, target) {
     return path;
 }
 
-const validatePath = function (path) {
+const validatePath = function(path) {
     /* 
     function that check, if the moving path is possible from the current position.
-
+  
     INPUT: [x, y] & path [[x1, y1], [x2, y2],...]
-
+  
     OUTPUT: true / false
     */
     // if path is not undefined.
@@ -100,14 +100,14 @@ const validatePath = function (path) {
     }
 }
 
-const calcValidAreaToMove = function (playerPos) {
+const calcValidAreaToMove = function(playerPos) {
 
     /* depends on current position of player, the function will calculate all valid points on map that the player can move to in his turn, both horizontally and vertically
-
+  
     // INPUT: player's current position [x, y]
     // OUTPUT: valid area that the player can move to in his turn.
                 [[x1, y1]. [x2, y2],...]
-
+  
     */
 
     let X = playerPos[0];
@@ -152,7 +152,7 @@ const calcValidAreaToMove = function (playerPos) {
     return movingArea;
 }
 
-const onWeapon =  function (currPlayer) {
+const onWeapon = function(currPlayer) {
     /*
     the function check if the player is standing on a weapon.
     

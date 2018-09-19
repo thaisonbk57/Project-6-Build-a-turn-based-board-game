@@ -15,7 +15,7 @@
     "board",
     "game"
   ],
-  "author": "",
+  "author": "Thai Son Dang",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thaisonbk57/Project-6-Build-a-turn-based-board-game/issues"
@@ -28,6 +28,7 @@
     "gulp-autoprefixer": "^6.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.6.1",
     "gulp-uglify": "^3.0.1",
     "imagemin": "^6.0.0"
   }

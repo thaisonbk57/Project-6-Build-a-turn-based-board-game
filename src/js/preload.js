@@ -1,7 +1,11 @@
 // get the canvas element
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-
+// set player
+// 1: player 01 moves
+// 2: player 01 moves
+// 3: no one moves
+let flag = 1;
 // width of the canvas
 const boardWidth = canvas.width;
 // this value can be changed to create a [N x N] matrix
