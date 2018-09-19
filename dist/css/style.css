@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 20px;
+}
+
+#canvasBox {
+    display: inline-block;
+    margin: 0 20px;
+    border: 30px solid transparent;
+	border-image-source: url("../img/crate.svg");
+	border-image-repeat: stretch;
+	border-image-width: 30px;
+	border-image-slice: 60;
+}
+
+#canvas {
+    display: block;
+    border: none;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.fl-left {
+    float: left;
+}
+
+.fl-right {
+    float: right;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.btn {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 12px;
+    cursor: pointer;
+}
+
+body,
+html {
+    background: lightblue;
+}
+
+.container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.header {
+    text-align: center;
+}
+
+.logo-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    margin: auto;
+    width: 400px;
+}
+
+.btn--newgame,
+.btn--rules {
+    background: #F6A11B;
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-left: 20px;
+}
+
+.btn--newgame:hover,
+.btn--rules:hover {
+    color: black;
+    -webkit-box-shadow: 1px 1px 2px;
+    box-shadow: 1px 1px 2px;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.main {
+    display: grid;
+    position: relative;
+    margin: auto;
+    padding-top: 20px;
+    position: relative;
+    text-align: center;
+    grid-template-columns: 150px auto 150px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    min-width: 980px;
+}
+
+.detailBox {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+    background: white;
+    padding: 0 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(150, 74, 0, 0);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.index_value {
+    background: #D0CCCC;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.active {
+    -webkit-box-shadow: 4px 4px 6px #E07400, -4px -4px 6px #E07400;
+    box-shadow: 4px 4px 6px #E07400, -4px -4px 6px #E07400;
+    -webkit-transform: translate(0, -5px);
+    transform: translate(0, -5px);
+}
+
+.player_name {
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+/*rules section*/
+
+.rulesBox {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.7);
+    text-align: left;
+    font-weight: bold;
+    opacity: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.7s;
+    transition: all 0.7s;
+    height: 550px;
+    width: 550px;
+    left: -50%;
+}
+
+.rule-section {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.rule-section h3 {
+    font-size: 30px;
+}
+
+.rulesBox ul {
+    list-style-position: inside;
+    margin-top: 10px;
+}
+
+.rules-active {
+    opacity: 1;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+}
+
+
+
+
+
+/*DEFENSE CHOICE*/
+
+.message-box {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    background: #FFFFFF;
+    padding: 20px 40px;
+    border: 5px double black;
+    border-radius: 5px;
+    display: none;
+}
+
+.message-box h2#playerInturn {
+    margin-bottom: 15px;
+}
+
+.attack {
+    background: #D12F2F;
+    margin-right: 10px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.defense {
+    background: #2BA0D6;
+    margin-left: 10px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.message-box--active {
+    display: block;
+}
+
+.attack:hover,
+.defense:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}

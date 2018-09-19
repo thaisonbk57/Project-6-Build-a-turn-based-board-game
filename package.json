@@ -22,9 +22,13 @@
   },
   "homepage": "https://github.com/thaisonbk57/Project-6-Build-a-turn-based-board-game#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.1",
+    "imagemin": "^6.0.0"
   }
 }
