@@ -1,5 +1,2 @@
-1. Redirect to root folder.
-2. Run    npm install    to install all required packages.
-3. Run    gulp connect      to start the server.
-4. Open your browser and access   http://localhost:8888/ 
-5. Enjoy the game!!!
+1. Open the root folder and go to   dist  folder.
+2. Open/ run the file  index.html and ... enjoy the game.
