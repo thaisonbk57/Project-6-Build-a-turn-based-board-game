@@ -1,2 +1,0 @@
-1. Open the root folder and go to   dist  folder.
-2. Open/ run the file  index.html and ... enjoy the game.
